@@ -1,0 +1,46 @@
+---
+vars:
+  - repository
+  - title
+  - demo
+  - organization
+
+patterns:
+  - pattern: "*"
+    abstract: true
+    default:
+      "imfing/hextra-starter-template": "{{ .repository }}"
+      My Site: "{{ .title }}"
+      Hextra Starter Template: "{{ .title }}"
+
+  - pattern: "LICENSE"
+    # Copy the original license to a different folder
+    path:
+      "/": "vendors"
+    name:
+      "LICENSE": "hextra-starter-template.LICENSE"
+    verbatim: true
+
+  # Specific replacements for README.md
+  - pattern: "README.md"
+    content:
+      "https://imfing.github.io/hextra-starter-template/": "{{ .demo }}"
+
+  # Specific handling for Hugo configuration
+  - pattern: "hugo.yaml"
+    content:
+      "https://github.com/imfing": "{{ .organization }}"
+  - pattern: "go.mod"
+
+  # Apply to all markdown files in the content directory
+  - pattern: "content/**/*.md"
+
+  # Deployment configuration
+  - pattern: "netlify.toml"
+
+  # Development files
+  - pattern: ".devcontainer/*"
+  - pattern: ".github/**/*"
+  - pattern: ".vscode/**/*"
+  - pattern: ".gitignore"
+  - pattern: ".gitpod.yml"
