@@ -72,6 +72,22 @@ hugo mod tidy
 hugo server --logLevel debug --disableFastRender -p 1313
 ```
 
+### Using Sombra GitHub App
+
+[Sombra Github App](https://github.com/apps/sombra-app) is a simple GitHub app that allows you to scaffold new projects
+from other projects in your organization. If the App is already installed in your organization, you can use the following
+configuration on a newly created repository to boostrap a new project based on this template.
+
+```yaml
+templates:
+  - name: imfing/hextra-starter-template
+    vars:
+      organization: https://github.com/imfing           # Set your organization URL
+      repository: imfing/hextra-starter-template           # Set your repository full name
+      title: My Website                 # Define the website title
+      demo:       # Demo URL is you have it
+```
+
 ### Update theme
 
 ```shell

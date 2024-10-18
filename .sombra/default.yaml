@@ -1,9 +1,9 @@
 ---
 vars:
+  - organization
   - repository
   - title
   - demo
-  - organization
 
 patterns:
   - pattern: "*"
